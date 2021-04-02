@@ -16,7 +16,7 @@ this.state ={
 handlechange=(e)=>{
 this.setState({plan:e.target.value})
 }
-add =()=>{
+addList =()=>{
 axios.post(`https://localhost:5000/createList`, {this.state.plan })
 .then(res => {
  console.log(res);
@@ -45,7 +45,7 @@ return (
 	value={this.state.plan}
 	onChange = {this.handlechange}
       />
-      <Fab color="primary" aria-label="Add"  onClick ={this.add()} >
+      <Fab color="primary" aria-label="Add"  onClick ={this.addList()} >
         <AddIcon />
       </Fab>
      <Fab aria-label="Delete"  onClick= {this.deleteList()}>
