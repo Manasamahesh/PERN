@@ -5,7 +5,7 @@ app.listen(5000,() => {
 	console.log("server has started on 5000 ");
 });
 
-app.post("createList",async(req,res)=>{
+app.post("/createList",async(req,res)=>{
 try{
 const{description}=req.body;
 	const newlist = await pool.query("Insert Into pernStack values($1)",[description])
@@ -14,7 +14,7 @@ res.json(newlist.rows[1]);
 res.json("false");
 }})
 
-app.get("fetchList",async(req,res)=>{
+app.get("/fetchList",async(req,res)=>{
 try {
 const getall = await pool.query("select * From pernStack");
 res.json(getall.rows);
