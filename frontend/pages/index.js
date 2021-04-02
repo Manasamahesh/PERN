@@ -17,7 +17,7 @@ handlechange=(e)=>{
 this.setState({plan:e.target.value})
 }
 add =()=>{
-axios.post(`https://localhost:50000/createList`, {this.state.plan })
+axios.post(`https://localhost:5000/createList`, {this.state.plan })
 .then(res => {
  console.log(res);
  console.log(res.data); })
@@ -26,7 +26,7 @@ console.log("add this field")
 }
 
 deleteList = ()=>{
-  axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+  axios.post(`https://localhost:5000/deleteList`, {id})
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -37,18 +37,19 @@ console.log("dleted this field")
 render(){
 return (
 <div>
-	 <TextField
+	<TextField
         id="standard-uncontrolled"
         label="Uncontrolled"
         defaultValue=""
         margin="normal"
+	value={this.state.plan}
 	onChange = {this.handlechange}
       />
       <Fab color="primary" aria-label="Add"  onClick ={this.add()} >
         <AddIcon />
       </Fab>
-     <Fab aria-label="Delete"  onClick= {this.deleteiList()}>
-        <DeleteIcon />
+     <Fab aria-label="Delete"  onClick= {this.deleteList()}>
+       <DeleteIcon />
       </Fab>
 </div>
 )
