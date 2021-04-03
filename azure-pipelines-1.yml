@@ -67,5 +67,8 @@ stages:
               StartupCommand: 'npm run dev'
               ScriptType: 'Inline Script'
               InlineScript: |
+                pwd
+                cd frontend
+                ls
                 npm install
                 npm run build --if-present
