@@ -16,23 +16,22 @@ this.state ={
 handlechange=(e)=>{
 this.setState({plan:e.target.value})
 }
-addList =()=>{
-axios.post(`https://localhost:5000/createList`, {this.state.plan })
+addList =(plan)=>{
+axios.post(`https://localhost:5000/createList`, {plan})
 .then(res => {
  console.log(res);
- console.log(res.data); })
-}
+ console.log(res.data); 
+})
 console.log("add this field")
 }
 
-deleteList = ()=>{
+deleteList = (id)=>{
   axios.post(`https://localhost:5000/deleteList`, {id})
       .then(res => {
         console.log(res);
         console.log(res.data);
       })
-  }
-console.log("dleted this field")
+console.log("deleted this field")
 }
 render(){
 return (
@@ -45,10 +44,10 @@ return (
 	value={this.state.plan}
 	onChange = {this.handlechange}
       />
-      <Fab color="primary" aria-label="Add"  onClick ={this.addList()} >
+      <Fab color="primary" aria-label="Add"  onClick ={this.addList(this.state.plan)} >
         <AddIcon />
       </Fab>
-     <Fab aria-label="Delete"  onClick= {this.deleteList()}>
+     <Fab aria-label="Delete"  onClick= {this.deleteList(this.state.id)}>
        <DeleteIcon />
       </Fab>
 </div>
