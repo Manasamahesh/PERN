@@ -64,7 +64,7 @@ stages:
               WebAppName: $(webAppName)
               packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               RuntimeStack: 'NODE|14.10'
-              StartupCommand: 'cd backend && nodemon index.js  && cd .. && cd frontend && npm run start'
+              StartupCommand: 'cd backend && node index.js  && cd .. && cd frontend && npm run start'
               ScriptType: 'Inline Script'
               InlineScript: |
                 cd frontend
