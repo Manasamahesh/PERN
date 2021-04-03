@@ -64,9 +64,11 @@ stages:
               WebAppName: $(webAppName)
               packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               RuntimeStack: 'NODE|14.10'
-              StartupCommand: 'npm run dev'
+              StartupCommand: 'cd frontend && npm run dev'
               ScriptType: 'Inline Script'
               InlineScript: |
+                pwd
                 cd frontend
+                ls
                 npm install
                 npm run build --if-present
