@@ -68,8 +68,10 @@ stages:
               ScriptType: 'Inline Script'
               InlineScript: |
                 cd frontend
+                ls
                 npm install
                 npm run build --if-present
                 cd ..
                 cd backend
+                ls
                 npm install
